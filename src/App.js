@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+//import Draggable from './Draggable';
+import Gesture from './Gesture';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Gesture>
+        <Rect />
+      </Gesture>
+    </Container>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  width: 200px;
+  min-height: 100vh;
+`;
+
+const Rect = styled.div`
+  width: 200px;
+  height: 200px;
+  background: red;
+`;

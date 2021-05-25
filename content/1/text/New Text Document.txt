@@ -1,0 +1,129 @@
+My Mac G5 PC build
+18 Nov 2019 Sleeper 2003 Apple Power Mac G5 case
+
+Requirements.
+No external changes apart from what is in the PCI Case slots.
+Only the water components light up. RGB fittings, RGB pump and RGB reservoir.
+Black coloured parts wherever possible.
+The plan is to CNC a reservoir that fits perfectly in the smaller top hole when the case is open.
+
+There are 4 screw holes on the bottom of the case and 17 mounted "nuts" on the back of the case wall. Everything will need to be mounted from these points with the possible exception of the 2 92mm back fans.
+
+First time on bit-tech after finding you tube channel while researching distribution plates
+First time case mod apart from hydro dipping a Corsair 380T
+First time custom water cooling
+First time hardlining (If that's the word)
+First time CNCing anything
+First time.... many many things.
+
+My concerns at this point are.
+Getting the PSU connected up with the case power socket.
+Getting all the back IO working. Network,USB and Audio.
+Getting all the front IO working. Power button, USB and Audio.
+CNCing the reservoir.
+Custom O-Ring for the reservoir. Preferable silicone I guess... I don't know.
+Air flow in general. Mostly having the PSU internal.
+Water destroying all my parts.
+..... I am sure it will be fine.
+          
+18 Nov 2019 Poject docs
+
+
+ 
+20 Nov 2019 Update:
+
+All parts purchased and acquired.
+Work started on making new back plate.
+MB put together.
+Designs made for printed mounts. Pump,radiator and MB.
+
+Sorry for bad photos DSLR is in the shop it will get better.
+     
+3 Mar 2020 Update 2#
+
+Camera back from the shop.
+
+Soldering Done:
+Front and back IO wiring Done:
+Printing Done:
+
+Mounting plate prints abandoned it was not working.
+        
+3 Mar 2020 Solder update#.
+
+2x USB, 2x Audio and 1x Network on the back IO.
+
+Everything else doesn't work on the back IO.
+  
+6 Mar 2020 I Regret Nothing
+
+Despite what you might think I regret nothing.
+
+I especially don't regret not having any access to behind the "Mounting Plate" once its in and many of the parts cant be put in until the mounting plate is screwed down.
+
+I also don/t regret using RGB fittings that need to be individually wired up.
+
+Wish me luck I have no idea if this will work
+
+7 Mar 2020 Update 4#
+
+Update 4# Fit everything in.
+
+May have busted the 20pin USB-3 port on MB no way to know for sure yet.
+
+Put in GPU with fans still on just to see if it will work. I will need to do something about it dropping.
+
+Overall I am happy. What was in my head is finally in IRL.
+
+Next up. Water pipes from MB to Pump to Radiator. To make sure it posts.
+CNC acrylic distro plate. Acrylic arrived 2 days ago.
+Put water cooler on GPU.
+Final Water pipes.
+
+8 Mar 2020 Update 5#
+
+GPU bracket and some tubes.
+
+First time bending tubes. Hot one bend a little hot but it is quite easy to do.
+
+Can't do any more work for a couple of weeks now :(
+    
+16 Mar 2020 Teaser
+
+Teaser photo while I am waiting for my CNC man to get back to Australia from the US.... It could be a while. Temp reservoir to test everything else.
+
+15 may 2020 Update 6#
+
+I have had to leave the original bref a little.
+
+The USB ports on the back and front will now be blue USB3 ports. Changed from the original grey of the USB 2
+
+I will see if I can do something to make them look more grey but I don't like my chances.
+
+I just needed to do this to make it usable.
+Before 2x USB3.1 and 7x USB2
+Now 5x USB3.1 4x USB2
+
+I was hoping that this would not happen but the PSU was heating up because it was a bit starved of air.
+
+I have cut 2 big 92mm holes in the bottom of the case to let the air in. They have the same grill as the back of the computer and should not really be visible.
+
+I think it looks good but it is not the original bref of “No external changes apart from what is in the PCI Case slots”
+     
+15 may 2020 Update 7#
+
+I have completely changed the way the mounting plate works. Now it’s glued onto the inner case and the outer case is screwed on last.
+
+It's hard to explain. I hope the pictures help.
+
+Basically now I can see the cables on the back of the mounting plate and there are no visible screws holding it in place.
+
+I am however losing a little rigidity over all as the inner case can only be screwed onto the outer case on one side
+      
+20 june 2020 Update COVID#
+
+I need to get access to a CNC to get the top water distro done.
+
+I will get this finished but I feel it will be not for quite some time
+
+:(
