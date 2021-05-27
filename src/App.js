@@ -1,12 +1,15 @@
 import styled from 'styled-components';
-import Gesture from './Gesture';
+import Pages2 from './Pages2';
+import Circle from './Circle';
 
 function App() {
   return (
     <Container>
-      <Gesture>
+      <Pages2>
         <Rect/>
-      </Gesture>
+      </Pages2>
+      <Pages2></Pages2>
+      <Circle/>
     </Container>
   );
 }

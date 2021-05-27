@@ -15,7 +15,6 @@ function Pages({positionX, positionY, parentScale}) {
   const trans = (x, y) => `translate3d(${x}px,${y}px,0) scale(${parentScale})`
   const [trail, set] = useTrail(4, () => ({ xy: [0, 0], config: (i) => ({ tension: (Math.floor(Math.random() * (1000 - 400) + 400)), friction: (Math.floor(Math.random() * (130 - 60) + 60)) }) }))
 
-
   set({ xy: [positionX, positionY] })
 
   return trail.map((props, i) => (
