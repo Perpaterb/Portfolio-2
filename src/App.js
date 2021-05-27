@@ -1,14 +1,11 @@
 import styled from 'styled-components';
-//import Draggable from './Draggable';
 import Gesture from './Gesture';
-
-
 
 function App() {
   return (
     <Container>
       <Gesture>
-        <Rect />
+        <Rect/>
       </Gesture>
     </Container>
   );
@@ -17,7 +14,7 @@ function App() {
 export default App;
 
 const Container = styled.div`
-  width: 200px;
+  width: 0px;
   min-height: 100vh;
 `;
 

@@ -1,5 +1,7 @@
 import React, {useRef, useMemo, useState} from "react";
 import {useGesture} from "react-use-gesture";
+import Pages from './Pages';
+
 
 const POSITION = {x: 0,y: 0};
 
@@ -23,16 +25,16 @@ const Gesture = ({children}) => {
     }
 
     useGesture({
-        onDrag: ({ offset: [clientX, clientY]}) => {
+        onDrag: ({ offset: [x, y]}) => {
             const translation = {
-                x: clientX, 
-                y: clientY,
+                x: x, 
+                y: y,
             };
             setState(state => ({
                 ...state,
                 isDragging: true,
                 translation
-            })); 
+            }));
         },
         onDragEnd: () => {
             setState(state => ({
@@ -58,16 +60,30 @@ const Gesture = ({children}) => {
     const styles = useMemo(() => ({
         cursor: state.isDragging ? '-webkit-grabbing' : '-webkit-grab',
         transform: `translate(${state.translation.x}px, ${state.translation.y}px) scale(${state.scale})`,
-        zIndex: state.isDragging ? 2 : 1,
-        position: state.isDragging ? 'absolute' : 'relative',
+        zIndex: 4,
+        position: 'absolute',
 
     }), [state.isDragging, state.translation, state.scale]);
 
 
     return(
-      <div ref={child} style={styles} onWheelCapture={onScroll}>  
-        {children}
-      </div>
+        <div>
+            <div ref={child} style={styles} onWheelCapture={onScroll}>  
+                {children}
+            </div>
+            <div>
+                {[1,2,3,4].map((number, i) => {
+                    return (
+                        <Pages 
+                        key={i}                     
+                        positionX={state.translation.x}
+                        positionY={state.translation.y}
+                        parentScale={state.scale}>
+                        </Pages>
+                    )
+                })}
+            </div>
+        </div>
     );
 };
 
