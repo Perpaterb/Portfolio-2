@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-//import Draggable from './Draggable';
-import Gesture from './Gesture';
-
-
+import Pages2 from './Pages2';
+import Circle from './Circle';
 
 function App() {
   return (
     <Container>
-      <Gesture>
-        <Rect />
-      </Gesture>
+      <Pages2>
+        <Rect/>
+      </Pages2>
+      <Pages2></Pages2>
+      <Circle/>
     </Container>
   );
 }
@@ -17,7 +17,7 @@ function App() {
 export default App;
 
 const Container = styled.div`
-  width: 200px;
+  width: 0px;
   min-height: 100vh;
 `;
 
