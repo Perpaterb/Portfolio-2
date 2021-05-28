@@ -1,15 +1,11 @@
 import styled from 'styled-components';
-import Pages2 from './Pages2';
-import Circle from './Circle';
+import Gesture from './Gesture';
+import Pages3 from './Pages3';
 
 function App() {
   return (
     <Container>
-      <Pages2>
-        <Rect/>
-      </Pages2>
-      <Pages2></Pages2>
-      <Circle/>
+        <Pages3/>
     </Container>
   );
 }
@@ -21,8 +17,8 @@ const Container = styled.div`
   min-height: 100vh;
 `;
 
-const Rect = styled.div`
-  width: 200px;
-  height: 200px;
-  background: red;
-`;
+// const Rect = styled.div`
+//   width: 200px;
+//   height: 200px;
+//   background: red;
+// `;

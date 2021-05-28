@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Card from './Card.js';
 
 
@@ -17,9 +16,7 @@ class Circle extends React.Component {
         this.temp_theta = 0.0;
         this.anim_id = null;
     }
-
-    let 
-
+    
     componentDidMount() {
         let center_of_wheel = {
             x: parseFloat(this.wheel.style.width) / 2,

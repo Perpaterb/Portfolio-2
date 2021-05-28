@@ -1,7 +1,5 @@
 import React, {useRef, useMemo, useState} from "react";
 import {useGesture} from "react-use-gesture";
-import Pages from './Pages';
-
 
 const POSITION = {x: 0,y: 0};
 
@@ -68,21 +66,7 @@ const Gesture = ({children}) => {
 
     return(
         <div>
-            <div ref={child} style={styles} onWheelCapture={onScroll}>  
-                {children}
-            </div>
-            <div>
-                {[1,2,3,4].map((number, i) => {
-                    return (
-                        <Pages 
-                        key={i}                     
-                        positionX={state.translation.x}
-                        positionY={state.translation.y}
-                        parentScale={state.scale}>
-                        </Pages>
-                    )
-                })}
-            </div>
+            {children}
         </div>
     );
 };
