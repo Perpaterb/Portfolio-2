@@ -8,7 +8,6 @@ width: 50px;
 height: 50px;
 background: green;`
 
-
 function Pages({positionX, positionY, parentScale}) {
   const domTarget = React.useRef(null)
 
@@ -16,6 +15,21 @@ function Pages({positionX, positionY, parentScale}) {
   const [trail, set] = useTrail(4, () => ({ xy: [0, 0], config: (i) => ({ tension: (Math.floor(Math.random() * (1000 - 400) + 400)), friction: (Math.floor(Math.random() * (130 - 60) + 60)) }) }))
 
   set({ xy: [positionX, positionY] })
+
+  useGesture(
+    {
+      onDragStart: () => setDrag(true),
+      onDrag: ({ offset: [x, y] }) => set({ xy: [x, y] }),
+      onDragEnd: () => setDrag(false),
+      onPinch: ({ offset: [d]}) => { 
+            setState(state => ({
+            ...state,
+            scale: 1 + d / 50
+        })); 
+    },
+    },
+    { domTarget, eventOptions: { passive: false } }
+  )
 
   return trail.map((props, i) => (
     <animated.div

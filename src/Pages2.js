@@ -45,7 +45,7 @@ function Pages2() {
             scale: newScale,
         }));
     }
-}
+  }
 
   return trail.map((props, i) => (
     <animated.div

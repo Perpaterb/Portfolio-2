@@ -1,6 +1,4 @@
 import React from 'react';
-import Pages from './Pages';
-import Pages2 from './Pages2';
 
 function get_coords(radian_interval, radius) {
     if (radian_interval === 0) {
@@ -29,8 +27,6 @@ function get_coords(radian_interval, radius) {
             }
         }
     }
-
-
 }
 
 function Card(props) {
