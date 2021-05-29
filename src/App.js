@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import Gesture from './Gesture';
-import Pages3 from './Pages3';
+//import Gesture from './Gesture';
+import Pages4 from './Pages4';
 
 function App() {
   return (
-    <Container>
-        <Pages3/>
+    <Container key={0}>
+      <Pages4 key={1}/>
     </Container>
   );
 }

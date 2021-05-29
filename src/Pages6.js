@@ -37,16 +37,6 @@ function Pages2() {
     { domTarget, eventOptions: { passive: false } }
   )
 
-  const onScroll = (e) => {
-    const newScale = state.scale + (e.deltaY * -0.003);        
-    if (newScale > .5) {
-        setState(state => ({
-            ...state,
-            scale: newScale,
-        }));
-    }
-  }
-
   return trail.map((props, i) => (
     <animated.div
       key={i}
@@ -54,7 +44,6 @@ function Pages2() {
       className={`${drag ? 'dragging' : ''}`}
       cursor={`${drag ? '-webkit-grabbing' : '-webkit-grab'}`}
       style={{ transform: props.xy.to(trans), zIndex: 50-i, position: 'absolute',}}
-      onWheelCapture={onScroll}
     >
       <Child/>
     </animated.div>
