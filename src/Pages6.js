@@ -18,7 +18,7 @@ function Pages2() {
   const domTarget = React.useRef(null)
 
   const trans = (x, y) => `translate3d(${x}px,${y}px,0) scale(${state.scale})`
-  const [trail, set] = useTrail(2, () => ({ xy: [0, 0], config: (i) => ({ tension: (Math.floor(Math.random() * (1200 - 600) + 400)), friction: (Math.floor(Math.random() * (130 - 40) + 40)) }) }))
+  const [trail, set] = useTrail(5, () => ({ xy: [0, 0], config: (i) => ({ tension: (Math.floor(Math.random() * (1200 - 600) + 400)), friction: (Math.floor(Math.random() * (130 - 40) + 40)) }) }))
 
   const [drag, setDrag] = React.useState(false)
 

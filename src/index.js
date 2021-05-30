@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
-import Pages4 from './Pages4';
+import Pages7 from './Pages7';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Pages4/>
+    <Pages7/>
   </React.StrictMode>,
   document.getElementById('root')
 );
