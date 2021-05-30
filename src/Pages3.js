@@ -65,8 +65,8 @@ function Pages3() {
     const child = useRef();
 
     const trans = (x, y) => `translate3d(${x}px,${y}px,0)`
-    const [trail, set] = useTrail(state.numberOfCard, () => ({ xy: [0, 0], config: (i) => ({ tension: (Math.floor(Math.random() * (1200 - 600) + 400)), friction: (Math.floor(Math.random() * (130 - 40) + 40)) }) }))
-
+    const [trail, set] = useTrail(1, () => ({ xy: [0, 0], config: (i) => ({ tension: (Math.floor(Math.random() * (1200 - 600) + 400)), friction: (Math.floor(Math.random() * (130 - 40) + 40)) }) }))
+    
     const [drag, setDrag] = React.useState(false)
     
     useEffect(() => {
@@ -94,7 +94,7 @@ function Pages3() {
             homePos: tempCardsCoord,
             
         }));
-    }, [state.radius])
+    }, [state.radius, state.numberOfCard, state.wheelWidth, state.wheelHeight])
     
     useGesture(
     {
@@ -124,10 +124,12 @@ function Pages3() {
     }
     
 
-    if (state.cards.length < 1 ) {
+    if (state.cards.length < 1 && state.homePos < 1) {
         console.log('Not up to date')
         return trail.map((props, i) => (
             <animated.div 
+                key={i}
+                className={`${drag ? 'dragging' : ''}`}
                 ref={child} 
                 onWheelCapture={onScroll} 
                 style={{
@@ -142,28 +144,31 @@ function Pages3() {
         ))
 
     } else {
-        return trail.map((props, i) => (
-            <animated.div 
-                ref={child} 
-                onWheelCapture={onScroll}
-                style={{
-                    left: state.wheelWidth / 2 - state.homePos[i].x,
-                    top: state.wheelHeight / 2 - state.homePos[i].y,
-                    position: 'absolute',
-                    transform: props.xy.to(trans), 
-                    scale: state.scale,
-                    zIndex: 100 - i,
-                    }} 
-                >
-                    {i === 0 &&
-                        <Main/>}
-                    {i != 0 &&
-                        <Child style={{transform: 'translate(110%, 30%)'}}/>}
-
-            </animated.div>
-    ))
-    }
-
+        console.log('Go Go Go')
+        return state.cards.map((e,i) => (
+            <div>
+                {trail.map((props, a) => (
+                    <animated.div
+                        className={`${drag ? 'dragging' : ''}`}
+                        ref={child} 
+                        onWheelCapture={onScroll}
+                        style={{
+                            left: state.wheelWidth / 2 - state.homePos[i].x,
+                            top: state.wheelHeight / 2 - state.homePos[i].y,
+                            position: 'absolute',
+                            transform: props.xy.to(trans), 
+                            scale: state.scale,
+                            zIndex: 100 - i,
+                            }} 
+                    >
+                            {i === 0 &&
+                                <Main/>}
+                            {i !== 0 &&
+                                <Child style={{transform: 'translate(110%, 30%)'}}/>}
+                    </animated.div>
+                ))}
+            </div>
+    ))}
 }
 
 

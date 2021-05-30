@@ -18,7 +18,7 @@ function Pages2() {
   const domTarget = React.useRef(null)
 
   const trans = (x, y) => `translate3d(${x}px,${y}px,0) scale(${state.scale})`
-  const [trail, set] = useTrail(2, () => ({ xy: [0, 0], config: (i) => ({ tension: (Math.floor(Math.random() * (1200 - 600) + 400)), friction: (Math.floor(Math.random() * (130 - 40) + 40)) }) }))
+  const [trail, set] = useTrail(5, () => ({ xy: [0, 0], config: (i) => ({ tension: (Math.floor(Math.random() * (1200 - 600) + 400)), friction: (Math.floor(Math.random() * (130 - 40) + 40)) }) }))
 
   const [drag, setDrag] = React.useState(false)
 
@@ -37,16 +37,6 @@ function Pages2() {
     { domTarget, eventOptions: { passive: false } }
   )
 
-  const onScroll = (e) => {
-    const newScale = state.scale + (e.deltaY * -0.003);        
-    if (newScale > .5) {
-        setState(state => ({
-            ...state,
-            scale: newScale,
-        }));
-    }
-  }
-
   return trail.map((props, i) => (
     <animated.div
       key={i}
@@ -54,7 +44,6 @@ function Pages2() {
       className={`${drag ? 'dragging' : ''}`}
       cursor={`${drag ? '-webkit-grabbing' : '-webkit-grab'}`}
       style={{ transform: props.xy.to(trans), zIndex: 50-i, position: 'absolute',}}
-      onWheelCapture={onScroll}
     >
       <Child/>
     </animated.div>
