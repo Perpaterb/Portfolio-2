@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
-import Pages7 from './Pages7';
+import PageParent from './PageParent';
+//import Pages8 from './Pages8';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Pages7/>
+    <PageParent/>
   </React.StrictMode>,
   document.getElementById('root')
 );
