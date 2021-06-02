@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState} from 'react'
 import { useSprings, animated} from 'react-spring'
-import { useGesture, useDrag} from 'react-use-gesture'
+import { useGesture, useDrag, useWheel} from 'react-use-gesture'
 import imgs from './data'
 import styles from './styles.module.css'
 
@@ -33,27 +33,29 @@ function get_coords(radian_interval, radius) {
     }
 }
 
-
 function Pages7() {
     const [state, setState] = useState({
         scale: 1,
         radius: 220,
         defaultRadius: 220,
-        cards: [],
-        homePos: [],
-        theta: 0.0,
         numberOfCard: 7,
-        temp_theta: 0.0,
-        anim_id: null,
-        wheelWidth: 180,
-        wheelHeight: 250,
         mouseOfset: [0 ,0],
+        createLocationArray: [],
     });
 
-    const createLocationArray = []
-    for (let i = 0; i < state.numberOfCard; i++) {
-        createLocationArray.push (get_coords((Math.PI / (state.numberOfCard/2)) * i, state.radius))
-    }
+
+        const createLocationArray = []
+        const pageOrder = []
+        for (let i = 0; i < state.numberOfCard; i++) {
+            createLocationArray.push (get_coords((Math.PI / (state.numberOfCard/2)) * i, state.radius))
+            if (i === 0 ) {
+                pageOrder.push (1)
+            } else {
+                pageOrder.push (0)
+            }
+        }
+        console.log("updating")
+
 
     useEffect(() => {
         const preventDefault = function (e) { return e.preventDefault(); }
@@ -64,6 +66,7 @@ function Pages7() {
             document.removeEventListener('gesturestart', preventDefault)
             document.removeEventListener('gesturechange', preventDefault)
         }
+
     }, [])
 
     const domTarget = useRef(null)
@@ -81,80 +84,62 @@ function Pages7() {
             },
         }))
     
-    const bind = useDrag(({ active, offset: [x, y] }) => {
+    const dragBind = useDrag(({ active, offset: [x, y] }) => {
         api.start(i => ({x: createLocationArray[i].x + x ,y : createLocationArray[i].y + y}))
         setState(state => ({
                 ...state,
                 mouseOfset: [x, y],
         }));
+        console.log("drag!!!  ",createLocationArray)
     })
 
-    useGesture(
-        {
-          //onDrag: ({ active, offset: [x, y] }) => api({ x, y}),
-          onPinch: ({ offset: [d, a] }) => api({ zoom: d / 200, rotateZ: a }),
-          onMove: ({ xy: [px, py], dragging }) => !dragging && api({}),
-          onHover: ({ hovering }) => !hovering && api({}),
-          onWheel: ({ event, delta: [, y] }) => {
-            event.preventDefault()
-            const scale = state.scale + (y * -0.003)
-            if (scale > .5) {
-            api({scaleP : scale, scaleC: (scale*0.3)})
-            api.start(i => ({x: createLocationArray[i].x + state.mouseOfset[0] ,y : createLocationArray[i].y + state.mouseOfset[1]}))
+    const wheelBind = useWheel(({ event, delta: [, y] }) => {
+        const scale = state.scale + (y * -0.003)
+        if (scale > .5) {
+        api({scaleP : scale, scaleC: (scale*0.3)})
+        api.start(i => ({x: createLocationArray[i].x + state.mouseOfset[0] ,y : createLocationArray[i].y + state.mouseOfset[1]}))
+        setState(state => ({
+            ...state,
+            scale: scale,
+            radius: state.defaultRadius * scale 
+        }));
+        }
+    })
+
+    const handleOnClickEvent = (page) => {
+        console.log("clicked  ", page)
+        let temp = createLocationArray[page]
+        createLocationArray[page] = createLocationArray[0]
+        createLocationArray[0] = temp
+        api.start(i => ({x: createLocationArray[i].x + state.mouseOfset[0] ,y : createLocationArray[i].y + state.mouseOfset[1]}))
             setState(state => ({
-                ...state,
-                scale: scale,
-                radius: state.defaultRadius * scale 
-            }));
-            }
-          },
-        },
-        { domTarget, eventOptions: { passive: false } }
-    )
+            ...state,
+            createLocationArrayTemp: createLocationArray,
+        }));
+        console.log("clicked!!!  ",createLocationArray)
+    }
+
 
     return props.map(({x, y, scaleP, scaleC, zoom,}, i) => (
-        <div>
-            {(() => {
-                if (i === 0) {
-                    return(
-                        <animated.div 
-                        {...bind()}
-                        ref={domTarget} 
-                        className={styles.card}
-                        style={{
-                            zindex: 400,
-                            x,
-                            y,
-                            scale: scaleP, //to([scaleP, zoom], function (s, z) { return s + z; }),
-                            position: 'absolute',
-                            
-                        }}>
-                            <animated.div>
-                                <div key={i} style={{ backgroundImage: `url(${imgs[i]})` }} />
-                            </animated.div>
-                        </animated.div>
-                    )                  
-                } else {
-                    return(
-                        <animated.div
-                        className={styles.card}
-                        style={{
-                            zindex: 30 - i,
-                            x,
-                            y,
-                            scale: scaleC, //  to([scaleC, zoom], function (s, z) { return s + z; }),
-                            position: 'absolute',
-                            
-                        }}>
-                            <animated.div>
-                                <div key={i} style={{ backgroundImage: `url(${imgs[i]})` }} />
-                            </animated.div>
-                        </animated.div>
-                    )
-                }
-            })()}
-        </div>
-    ))
-    
+        <animated.div
+        {...dragBind([i])}
+        {...wheelBind([i])}
+        onClick = {() => handleOnClickEvent(i)}
+        key={i}
+        ref={domTarget} 
+        className={styles.card}
+        style={{
+            zindex: 400,
+            x,
+            y,
+            scale: pageOrder[i] === 1 ? scaleP : scaleC,
+            position: 'absolute',
+            
+        }}>
+            <animated.div>
+                <div key={i} style={{ backgroundImage: `url(${imgs[i]})` }} />
+            </animated.div>
+        </animated.div>
+    ))   
 }
 export default Pages7;
