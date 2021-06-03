@@ -4,7 +4,7 @@ import { useDrag, useWheel} from 'react-use-gesture'
 import imgs from './data'
 import styles from './styles.module.css'
 
-function Pages8({locations, radius, locationUpdater, positionsDefault}) {
+function Pages9({locations, radius, locationUpdater, positionsDefault}) {
     const [state, setState] = useState({
         scale: 1,
         radius: radius,
@@ -28,23 +28,26 @@ function Pages8({locations, radius, locationUpdater, positionsDefault}) {
     })
 
     const domTarget = useRef(null)
+    
 
     const [props, api] = useSprings(state.locations.length, i => ({
         x: state.locations[state.positionsArray.indexOf(i)].x, 
         y: state.locations[state.positionsArray.indexOf(i)].y, 
         scale: i === state.currentActive ? state.scale : (state.scale*0.3),
         config: { 
-            mass: (Math.random() * (2 - 1) + 1), //mass: state.currentActive === i ? 1 : (Math.random() * (10 - 1) + 1),
-            tension: (Math.random() * (600 - 500) + 500), //tension: state.currentActive === i ? 1200 : (Math.random() * (600 - 150) + 150), 
-            friction: (Math.random() * (200 - 120) + 120),//friction: state.currentActive === i ? 50 : (Math.random() * (200 - 120) + 120) 
+            mass: state.currentActive === i ? 1 : (Math.random() * (10 - 1) + 1),
+            tension: state.currentActive === i ? 1200 : (Math.random() * (400 - 150) + 150), 
+            friction: state.currentActive === i ? 50 : (Math.random() * (200 - 120) + 120) 
             },
         }))
     
+
     const dragBind = useDrag(({ args: [originalIndex], offset: [x, y] }) => {
         if (originalIndex === state.currentActive) {
             api.start(i => ({
                 x: state.locations[state.positionsArray.indexOf(i)].x + x,
                 y: state.locations[state.positionsArray.indexOf(i)].y + y,
+
             }))
             setState(state => ({
                     ...state,
@@ -75,6 +78,7 @@ function Pages8({locations, radius, locationUpdater, positionsDefault}) {
 
     const handleOnClickEvent = (page) => {
         if (state.currentActive !== page) {
+            api.stop()
             
             let positionsArray = []
             positionsArray.push(page)
@@ -90,16 +94,16 @@ function Pages8({locations, radius, locationUpdater, positionsDefault}) {
                 currentActive: page,
                 positionsArray: positionsArray,
             }));
-        
+
             api.start(i => ({
                 x: state.locations[positionsArray.indexOf(i)].x + state.mouseOfset[0],
                 y : state.locations[positionsArray.indexOf(i)].y + state.mouseOfset[1],
                 scale: i === page ? state.scale : (state.scale*0.3),
                 config: { 
-                        mass: state.currentActive === i ? 1 : (Math.random() * (10 - 1) + 1),
-                        tension: state.currentActive === i ? 1200 : (Math.random() * (600 - 150) + 150), 
-                        friction: state.currentActive === i ? 50 : (Math.random() * (200 - 120) + 120),
-                    }
+                    mass: page === i ? 1 : (Math.random() * (10 - 1) + 1),
+                    tension: page === i ? 1200 : (Math.random() * (600 - 150) + 150), 
+                    friction: page === i ? 50 : (Math.random() * (200 - 120) + 120) 
+                },
             }))
         }
     }
@@ -121,10 +125,9 @@ function Pages8({locations, radius, locationUpdater, positionsDefault}) {
             
         }}>
             <animated.div>
-                <h1>{i} </h1>
                 <div key={i} style={{ backgroundImage: `url(${imgs[i]})` }}> </div>
             </animated.div>
         </animated.div>
     ))   
 }
-export default Pages8;
+export default Pages9;

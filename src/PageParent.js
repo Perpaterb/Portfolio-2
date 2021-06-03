@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import Pages8 from './Pages8';
+import Pages9 from './Pages9';
 
 function get_coords(radian_interval, radius) {
     if (radian_interval === 0) {
@@ -35,36 +35,23 @@ function setupLocations(numberOfCard, radius) {
     for (let i = 0; i < numberOfCard; i++) {
         locations.push (get_coords((Math.PI / (numberOfCard/2)) * i, radius))
     }
-
-    return locations
+    return locations.reverse()
 }
 
-function setupPageOrder(numberOfCard) {
-    const pageOrder = []
-    for (let i = 0; i < numberOfCard; i++) {
-        if (i === 0 ) {
-            pageOrder.push (1)
-        } else {
-            pageOrder.push (0)
-        }
-    }
-    return pageOrder
-}
 
 function positionsArrayFunction(numberOfCards) {
     const array = []
     for (let i = 0; i < numberOfCards; i++) {
         array.push (i)
     }
-    return array
+    return array.reverse()
 }
 
 
 class PageParent extends Component {
-    radius = 220
-    numberOfCards = 10
+    radius = 160
+    numberOfCards = 7
     locations = setupLocations(this.numberOfCards, this.radius)
-    pageOrder = setupPageOrder(this.numberOfCards)
     positionsDefault = positionsArrayFunction(this.numberOfCards)
     
     locationUpdaterFunction = (newRadiusFromChild) => {
@@ -73,27 +60,12 @@ class PageParent extends Component {
         return this.locations
     }
 
-    pageOrderUpdaterFunction = (page) => {
-        const newPageOrder = []
-        for (let i = 0; i < this.numberOfCards; i++) {
-            if (i === page ) {
-                newPageOrder.push (1)
-            } else {
-                newPageOrder.push (0)
-            }
-        }
-        this.pageOrder = newPageOrder
-        return this.pageOrder
-    }
-
     render() {
         return (
-            <Pages8 
-            locations={this.locations} 
-            pageOrder={this.pageOrder} 
+            <Pages9 
+            locations={this.locations}        
             radius={this.radius} 
             locationUpdater={this.locationUpdaterFunction} 
-            pageOrderUpdater={this.pageOrderUpdaterFunction}
             positionsDefault={this.positionsDefault}
             />
         );
