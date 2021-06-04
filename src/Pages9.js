@@ -35,8 +35,8 @@ function Pages9({locations, radius, locationUpdater, positionsDefault}) {
         y: state.locations[state.positionsArray.indexOf(i)].y, 
         scale: i === state.currentActive ? state.scale : (state.scale*0.3),
         config: { 
-            mass: state.currentActive === i ? 1 : (Math.random() * (10 - 1) + 1),
-            tension: state.currentActive === i ? 1200 : (Math.random() * (400 - 150) + 150), 
+            mass: state.currentActive === i ? 1 : (Math.random() * (5 - 3) + 1),
+            tension: state.currentActive === i ? 800 : (Math.random() * (400 - 150) + 150), 
             friction: state.currentActive === i ? 50 : (Math.random() * (200 - 120) + 120) 
             },
         }))
@@ -89,22 +89,22 @@ function Pages9({locations, radius, locationUpdater, positionsDefault}) {
             }
             positionsArray = positionsArray.reverse()
 
-            setState(state => ({
-                ...state,
-                currentActive: page,
-                positionsArray: positionsArray,
-            }));
-
             api.start(i => ({
                 x: state.locations[positionsArray.indexOf(i)].x + state.mouseOfset[0],
                 y : state.locations[positionsArray.indexOf(i)].y + state.mouseOfset[1],
                 scale: i === page ? state.scale : (state.scale*0.3),
                 config: { 
-                    mass: page === i ? 1 : (Math.random() * (10 - 1) + 1),
-                    tension: page === i ? 1200 : (Math.random() * (600 - 150) + 150), 
+                    mass: page === i ? 1 : (Math.random() * (5 - 3) + 1),
+                    tension: page === i ? 800 : (Math.random() * (400 - 150) + 150), 
                     friction: page === i ? 50 : (Math.random() * (200 - 120) + 120) 
                 },
             }))
+            
+            setState(state => ({
+                ...state,
+                currentActive: page,
+                positionsArray: positionsArray,
+            }));
         }
     }
 
