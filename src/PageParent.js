@@ -62,7 +62,8 @@ class PageParent extends Component {
 
     render() {
         return (
-            <Pages9 
+            <Pages9
+            nextPage={this.props.pageToOpen}
             locations={this.locations}        
             radius={this.radius} 
             locationUpdater={this.locationUpdaterFunction} 

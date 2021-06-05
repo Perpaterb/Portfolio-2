@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import PageParent from './PageParent';
-import DroppingDiv from './DroppingDiv';
+import DivHandler from './DivHandler';
 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <DroppingDiv/>
-    <PageParent/>
+    <DivHandler/>
   </React.StrictMode>,
 document.getElementById('root')
 );
