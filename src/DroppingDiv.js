@@ -43,7 +43,7 @@ const DroppingDiv = (props) => {
 
     return heights.map((a,i) => (
         <Drop 
-            key={"drop_" +i}
+            key={"drop_",i}
             page={i}
             passingUpClickedFunction={DropClickedFunction}
             childWidth={widths[i]}
