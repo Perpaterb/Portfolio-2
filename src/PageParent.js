@@ -49,20 +49,21 @@ function positionsArrayFunction(numberOfCards) {
 
 
 class PageParent extends Component {
-    radius = 160
+    radius = 180
     numberOfCards = 7
     locations = setupLocations(this.numberOfCards, this.radius)
     positionsDefault = positionsArrayFunction(this.numberOfCards)
     
     locationUpdaterFunction = (newRadiusFromChild) => {
-        this.radius = newRadiusFromChild
+        this.radius = newRadiusFromChild *3
         this.locations = setupLocations(this.numberOfCards, this.radius)
         return this.locations
     }
 
     render() {
         return (
-            <Pages9 
+            <Pages9
+            page={this.props.pageToOpen}
             locations={this.locations}        
             radius={this.radius} 
             locationUpdater={this.locationUpdaterFunction} 

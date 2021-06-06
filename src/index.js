@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
-import PageParent from './PageParent';
-//import Pages8 from './Pages8';
+import DivHandler from './DivHandler';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <PageParent/>
+    <DivHandler/>
   </React.StrictMode>,
-  document.getElementById('root')
+document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
