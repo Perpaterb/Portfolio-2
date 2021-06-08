@@ -1,0 +1,14 @@
+https://ecstatic-goodall-6aac20.netlify.app/
+
+created 12/11/2020 
+
+
+Introduction
+As an aspiring developer, it is important to be able to communicate and demonstrate your abilities to prospective employers.
+
+A great way to do this is to design, develop and deploy a website that showcases your talent, abilities and coding experience.
+
+Brief
+Create a portfolio website which presents you as a dev and IT professional. The purpose is to provide an online portfolio that provides information about you, your skills, interests, professional knowledge and a showcase of your work.
+
+The target audience for the portfolio website is an employer looking to engage a dev and/or IT professional. Expect the employer to have the following knowledge and expectations:

@@ -1,1 +1,0 @@
-["Quick Template Job Logger", "Work"]

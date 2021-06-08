@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState} from 'react'
 import { useSprings, animated} from 'react-spring'
 import { useDrag, useWheel} from 'react-use-gesture'
-import imgs from './data'
 import styles from './styles.module.css'
 import useWindowDimensions from './windowDimensions'
-import closePNG from './img/close-200.png'
+import allPages from './content/allPages'
+
+
 
 function Pages9({locations, radius, locationUpdater, positionsDefault, page}) {
     const [state, setState] = useState({
@@ -16,6 +17,7 @@ function Pages9({locations, radius, locationUpdater, positionsDefault, page}) {
         currentActive: 0,
         positionsArray: positionsDefault,
     });
+
 
     //Spring setup
     const [props, api] = useSprings(state.locations.length, i => ({
@@ -43,20 +45,6 @@ function Pages9({locations, radius, locationUpdater, positionsDefault, page}) {
                 tension: state.currentActive === i ? 400 : (Math.random() * (400 - 150) + 150), 
                 friction: state.currentActive === i ? 120 : (Math.random() * (200 - 120) + 120) 
             },
-        }))
-    }
-
-    // Move page Down
-    const closePage = () => {
-        api.start(i => ({
-            x: 0,
-            y: 0,
-            scale: 0.1,
-            config: { 
-                mass: 1,
-                tension: 400, 
-                friction: 100, 
-            }
         }))
     }
 
@@ -138,11 +126,6 @@ function Pages9({locations, radius, locationUpdater, positionsDefault, page}) {
         }
     }
 
-    const close = (page) => {
-
-        console.log("Close ", page)
-    }
-
     useEffect(() => {
         const preventDefault = function (e) { return e.preventDefault(); }
         document.addEventListener('gesturestart', preventDefault)
@@ -157,27 +140,35 @@ function Pages9({locations, radius, locationUpdater, positionsDefault, page}) {
 
     }, [])
 
+    //console.log(allPages[page-1][0].hight)
+    //console.log(state.locations)
+
     return state.positionsArray.map((i) => (
-        <div>
-            <animated.div
-            {...dragBind(i)}
-            {...wheelBind(i)}
-            onClickCapture = {() => handleOnClickEvent(i)}
-            key={"pages_",i}
-            ref={domTarget} 
-            className={styles.card}
-            style={{
-                x: props[i].x,
-                y: props[i].y,
-                scale: props[i].scale,
-                position: 'absolute',
-            }}>
-                
-                <div>
-                    <div style={{backgroundImage: `url(${imgs[i]})` }}> </div>
-                </div>
-            </animated.div>
-        </div> 
+        <animated.div
+        {...dragBind(i)}
+        {...wheelBind(i)}
+        onClickCapture = {() => handleOnClickEvent(i)}
+        key={"pages_"+i}
+        ref={domTarget} 
+        className={styles.card}
+        style={{
+            height: allPages[page-1][i].height,
+            width: allPages[page-1][i].width,
+            left: props[i].x,
+            top: props[i].y,
+            scale: props[i].scale,
+            position: 'absolute',
+        }}>
+            
+            <div>
+                {(()=>{
+                    const Page = allPages[page-1][i].page
+                    return(                      
+                        <Page/>
+                    )
+                })()}
+            </div>
+        </animated.div>
     ))   
 }
 export default Pages9;

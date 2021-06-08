@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import DivHandler from './DivHandler';
-
 import reportWebVitals from './reportWebVitals';
+import nameImg from './img/background-Name.png';
 
 ReactDOM.render(
   <React.StrictMode>
+    <img src={nameImg} style={{height:45 , position: 'fixed', bottom: 10, left: 10}} alt={"name"} />
     <DivHandler/>
   </React.StrictMode>,
 document.getElementById('root')

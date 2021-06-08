@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
-import styled from 'styled-components';
 import useWindowDimensions from './windowDimensions';
-import { useSpring , animated} from 'react-spring'
-
-const Child = styled.div`
-width: 50px;
-height: 50px;
-background: purple;`
+import { useSpring , animated} from 'react-spring';
+import thumbnails from './thumbnails';
 
 const Drop = (props) => {
     const [state, setState] = useState({
@@ -29,7 +24,7 @@ const Drop = (props) => {
         move.start({
             from: 0,
             to: (props.childHeight * -1) + height +400,
-            config: { duration: (Math.random() * (40000 - 20000) + 20000) }
+            config: { duration: (Math.random() * (80000 - 40000) + 40000) }
         });
         setState(state => ({
         ...state,
@@ -40,7 +35,6 @@ const Drop = (props) => {
     }
 
     const handleOnClickEvent = (index) => {
-
         props.passingUpClickedFunction(index)
         move.start({
             width: props.childWidth + width,
@@ -52,12 +46,20 @@ const Drop = (props) => {
         });
     }
 
-    const index = props.page
+    const index = props.pageNumbers
 
     useEffect(() => {
         startAndRestart()
    
     },[]);
+
+    const imgStyle = {
+        width: '80px', 
+        height: '80px',
+        borderRadius: '50%',
+        //boxShadow: "0px 10px 20px #00000060",
+    }
+    
 
 
     return (
@@ -70,9 +72,7 @@ const Drop = (props) => {
             }}
             onClickCapture = {() => handleOnClickEvent(index)}
             >
-            <Child>
-            <h1>{index}</h1>
-            </Child>
+            <img src={thumbnails[props.pageNumbers-1]} style={imgStyle} alt={"name"} />
         </animated.div>
     );
 };
