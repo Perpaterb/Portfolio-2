@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import Pages9 from './Pages9';
+import allPages from './content/allPages'
 
 function get_coords(radian_interval, radius) {
     if (radian_interval === 0) {
@@ -49,8 +50,8 @@ function positionsArrayFunction(numberOfCards) {
 
 
 class PageParent extends Component {
-    radius = 180
-    numberOfCards = 7
+    radius = 220
+    numberOfCards = allPages[this.props.pageToOpen-1].length
     locations = setupLocations(this.numberOfCards, this.radius)
     positionsDefault = positionsArrayFunction(this.numberOfCards)
     
