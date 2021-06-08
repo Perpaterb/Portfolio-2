@@ -23,7 +23,7 @@ const page1post1 = () => {
             <p>2. produce printed output or interact with the file system</p>
             <br/>
             <h3>Minesweeper in ruby</h3>
-            <a href="https://github.com/Perpaterb/minesweeper"  target="_blank" >https://github.com/Perpaterb/minesweeper</a>
+            <a href="https://github.com/Perpaterb/minesweeper"  target="_blank" rel="noreferrer" >https://github.com/Perpaterb/minesweeper</a>
         </Main>
     )
 }

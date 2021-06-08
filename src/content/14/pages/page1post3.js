@@ -17,7 +17,7 @@ const page1post3 = () => {
             <br/>
             <h1>Linkedin</h1>
             <br/>
-            <a href="http://linkedin.com/in/andrew-strange-bb23b1214" target="_blank"> linkedin.com/in/andrew-strange-bb23b1214</a>
+            <a href="http://linkedin.com/in/andrew-strange-bb23b1214" target="_blank" rel="noreferrer"> linkedin.com/in/andrew-strange-bb23b1214</a>
         </Main>
     )
 }

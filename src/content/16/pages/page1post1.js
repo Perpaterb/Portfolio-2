@@ -29,7 +29,7 @@ const page1post1 = () => {
             <h3>Note2: The leaderboard logic is not working. It gets all players net worth once a day (first time takes a long time) but doesn't put them in order. </h3>
             <br/>
             <h3>Two Sided Marketplace Project in Ruby on Rails</h3>
-            <a href="http://http://159.196.105.126/"  target="_blank" >ASX Trading Game</a>
+            <a href="http://http://159.196.105.126/"  target="_blank" rel="noreferrer" >ASX Trading Game</a>
         </Main>
     )
 }
