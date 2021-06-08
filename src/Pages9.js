@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState} from 'react'
 import { useSprings, animated} from 'react-spring'
-import { useDrag, useWheel} from 'react-use-gesture'
+import { useDrag, useWheel, useGesture } from 'react-use-gesture'
 import styles from './styles.module.css'
 import useWindowDimensions from './windowDimensions'
 import allPages from './content/allPages'
@@ -92,6 +92,16 @@ function Pages9({locations, radius, locationUpdater, positionsDefault, page}) {
             }
         }
     })
+
+
+    useGesture(
+        {
+          onPinch: ({ offset: [d, a] }) => {
+          } 
+        },
+        { domTarget, eventOptions: { passive: false } }
+    )
+
 
     const handleOnClickEvent = (page) => {
         

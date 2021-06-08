@@ -24,7 +24,7 @@ const page1post1 = () => {
             <p>This was a showcase of my creative side more then anything else. I just really didn't want to have a site that looked like all the others</p>
 
             <h3>Portfolio 1.0</h3>
-            <a href="https://ecstatic-goodall-6aac20.netlify.app/" target="_blank"> https://ecstatic-goodall-6aac20.netlify.app/</a>
+            <a href="https://ecstatic-goodall-6aac20.netlify.app/" target="_blank" rel="noreferrer"> https://ecstatic-goodall-6aac20.netlify.app/</a>
         </Main>
     )
 }

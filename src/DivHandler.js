@@ -21,7 +21,6 @@ const DivHandler = () => {
         }));
     }
 
-
     return (
         <div>
             <DroppingDiv 

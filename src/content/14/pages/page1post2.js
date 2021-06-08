@@ -17,7 +17,7 @@ const page1post9 = () => {
             <br/>
             <h1>Github</h1>
             <br/>
-            <a href="https://github.com/Perpaterb" target="_blank"> https://github.com/Perpaterb</a>
+            <a href="https://github.com/Perpaterb" target="_blank" rel="noreferrer"> https://github.com/Perpaterb</a>
         </Main>
     )
 }
