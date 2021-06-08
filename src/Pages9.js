@@ -53,8 +53,8 @@ function Pages9({locations, radius, locationUpdater, positionsDefault, page}) {
     const dragBind = useDrag(({ args: [originalIndex], offset: [x, y] }) => {
         if (originalIndex === state.currentActive) {
             api.start(i => ({
-                x: state.locations[state.positionsArray.indexOf(i)].x + x  - width/6,
-                y: state.locations[state.positionsArray.indexOf(i)].y + y  - (height + height/1.1 ),
+                x: state.locations[state.positionsArray.indexOf(i)].x + x - width/6,
+                y: state.locations[state.positionsArray.indexOf(i)].y + y - (height + height/1.1 ),
                 config: { 
                     mass: state.currentActive === i ? 1 : (Math.random() * (5 - 3) + 1),
                     tension: state.currentActive === i ? 800 : (Math.random() * (400 - 150) + 150), 
