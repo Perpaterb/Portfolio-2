@@ -38,7 +38,7 @@ const PageHandler = (props) => {
                 key={"pageParent_div_div_" +page}
                 style={{
                     position:'absolute', 
-                    transform: `translate(${width/2 -100}px , ${height *2}px)`,
+                    transform: `translate(${width/2 -500}px , ${height *2}px)`,
                     }}>
                 <PageParent
                     key={"pageParent_" +page}
