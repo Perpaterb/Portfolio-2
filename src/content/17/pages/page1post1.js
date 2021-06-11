@@ -21,6 +21,14 @@ const page1post1 = () => {
             <p>Just a simple click training game</p>
             <a href="https://reacting-in-react.herokuapp.com/"  target="_blank" rel="noreferrer" >Reacting in React</a>
             <a href="https://github.com/Perpaterb/Reacting-in-React"  target="_blank" rel="noreferrer" >Github</a>
+            <br/>
+            <h1>3. 10th-11th 06 2021. hackathon with 2 classmates.</h1>
+            <p>A logic gate puzzle</p>
+            <p>This one was a lot of work for 1.5 days.</p> 
+            <p>I came up with the idea, Project manages and ended up doing 90% of the logic</p>
+            <p>For me it was a big lesson in project management</p>
+            <a href="https://bad-react-puzzle.herokuapp.com/"  target="_blank" rel="noreferrer" >Logic Gate Puzzle </a>
+            <a href="https://github.com/Perpaterb/React-Puzzle"  target="_blank" rel="noreferrer" >Github</a>
         </Main>
     )
 }
