@@ -24,7 +24,7 @@ const Drop = (props) => {
         move.start({
             from: 0,
             to: (props.childHeight * -1) + height +400,
-            config: { duration: (Math.random() * (80000 - 40000) + 40000) }
+            config: { duration: (Math.random() * (80000 - 30000) + 30000) }
         });
         setState(state => ({
         ...state,

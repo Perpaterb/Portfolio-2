@@ -6,7 +6,7 @@ const Main = styled.div`
 `
 const page1post2 = () => {
     return (
-        <Main style={{ backgroundImage: `url(${imgs[0]})` }}/>
+        <Main style={{ backgroundImage: `url(${imgs[1]})` }}/>
     )
 }
 

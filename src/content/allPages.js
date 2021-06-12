@@ -15,6 +15,7 @@ import allPage14 from './14/pages/allPage1'
 import allPage15 from './15/pages/allPage1'
 import allPage16 from './16/pages/allPage1'
 import allPage17 from './17/pages/allPage1'
+import allPage18 from './18/pages/allPage1'
 
 const allPages = [
     allPage1,
@@ -34,6 +35,7 @@ const allPages = [
     allPage15,
     allPage16,
     allPage17,
+    allPage18,
     ];
 export default allPages
 

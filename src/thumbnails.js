@@ -15,6 +15,7 @@ import thumbnail14 from './content/14/thumbnail.png'
 import thumbnail15 from './content/15/thumbnail.jpg'
 import thumbnail16 from './content/16/thumbnail.jpg'
 import thumbnail17 from './content/17/thumbnail.jpg'
+import thumbnail18 from './content/18/thumbnail.jpg'
  
 const thumbnails = [
     thumbnail1,
@@ -34,5 +35,6 @@ const thumbnails = [
     thumbnail15,
     thumbnail16,
     thumbnail17,
+    thumbnail18,
     ];
 export default thumbnails
