@@ -37,7 +37,7 @@ function Pages9({locations, radius, locationUpdater, positionsDefault, page}) {
      // move page up and set state pageToOpen and pageShowing
     const pageUp = () => {
         api.start(i => ({
-            x: state.locations[state.positionsArray.indexOf(i)].x + state.mouseOfset[0] - width/6,
+            x: state.locations[state.positionsArray.indexOf(i)].x + state.mouseOfset[0],
             y : state.locations[state.positionsArray.indexOf(i)].y + state.mouseOfset[1] - (height + height/1.1 ),
             scale: i === state.currentActive ? state.scale : (state.scale*0.3),
             config: { 
@@ -53,7 +53,7 @@ function Pages9({locations, radius, locationUpdater, positionsDefault, page}) {
     const dragBind = useDrag(({ args: [originalIndex], offset: [x, y] }) => {
         if (originalIndex === state.currentActive) {
             api.start(i => ({
-                x: state.locations[state.positionsArray.indexOf(i)].x + x - width/6,
+                x: state.locations[state.positionsArray.indexOf(i)].x + x,
                 y: state.locations[state.positionsArray.indexOf(i)].y + y - (height + height/1.1 ),
                 config: { 
                     mass: state.currentActive === i ? 1 : (Math.random() * (5 - 3) + 1),
@@ -80,7 +80,7 @@ function Pages9({locations, radius, locationUpdater, positionsDefault, page}) {
                     locations: newLocations,
                 }));
                 api.start(i => ({
-                    x: state.locations[state.positionsArray.indexOf(i)].x + state.mouseOfset[0]  - width/6,
+                    x: state.locations[state.positionsArray.indexOf(i)].x + state.mouseOfset[0],
                     y: state.locations[state.positionsArray.indexOf(i)].y + state.mouseOfset[1] - (height + height/1.1 ),
                     scale: i === state.currentActive ? state.scale : (state.scale*0.3),
                     config: { 
@@ -118,7 +118,7 @@ function Pages9({locations, radius, locationUpdater, positionsDefault, page}) {
             positionsArray = positionsArray.reverse()
 
             api.start(i => ({
-                x: state.locations[positionsArray.indexOf(i)].x + state.mouseOfset[0] - width/6,
+                x: state.locations[positionsArray.indexOf(i)].x + state.mouseOfset[0],
                 y : state.locations[positionsArray.indexOf(i)].y + state.mouseOfset[1] - (height + height/1.1 ),
                 scale: i === page ? state.scale : (state.scale*0.3),
                 config: { 

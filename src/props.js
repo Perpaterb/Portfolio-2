@@ -1,5 +1,6 @@
 const properties = {
-dropDensity: 13,
-numberOfPages: 17, 
+dropDensity: 8,
+numberOfPages: 18, 
+startpos: 330, 
 }
 export default properties
