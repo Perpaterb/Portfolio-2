@@ -11,8 +11,8 @@ text-align: center;
 const page1post1 = () => {
     return (
         <Main>
-            <h1>Portfolio 2</h1>
-            <h3>So much new, So much front end, So much hit my head agents a wall, So much reward </h3>
+            <h1>Portfolio 2 (this website)</h1>
+            <h3>So much new, So much front end, So much hitting my head against a wall and so so so much reward </h3>
             <a href="https://github.com/Perpaterb/Portfolio-2"  target="_blank" rel="noreferrer" >Github</a>
             <br/>
             <h3>finished the 8th of June 2021</h3>
