@@ -15,7 +15,7 @@ const page1post1 = () => {
             <br/>
             <p>For Christmas 2020</p>
             <br/>
-            <p>Nothing rally hard just took a bit to get the print filament doing what I wanted.</p>
+            <p>Nothing really hard just took a bit to get the print filament doing what I wanted.</p>
         </Main>
     )
 }
